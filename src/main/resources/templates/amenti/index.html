@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+
+    <h1 th:text="${title}"></h1>
+    <h2>My Favorites</h2>
+
+    <p th:unless="${sups} and ${sups.size()}">No favorites added yet</p>
+
+    <a href="/amenti/add">Add a Favorite</a>
+
+<ul>
+    <li th:each="sup : ${sups}" th:text="${sup}"></li>
+
+</ul>
+
+</body>
+</html>

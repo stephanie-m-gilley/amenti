@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8" />
+    <title>Amenti</title>
+</head>
+<body class="container">
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<h1 th:text="Welcome+ ' ' + to + ' ' + Amenti + ' ' + ${user.username}"></h1>
+
+<h3>Your Favorites</h3>
+
+<p th:unless="${sups} and ${sups.size()}">No favorites added yet</p>
+
+</body>
+</html>

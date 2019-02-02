@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("amenti")
-public class AmentiController {
+public class SupplementsController {
 
     @Autowired
     private SupplementsDao supplementsDao;
@@ -45,10 +45,6 @@ public class AmentiController {
         return "redirect:";
     }
 
-    //@RequestMapping(value = "remove", method = RequestMethod.GET)
-    //public String processRemoveFavorite(Model model) {
-      //  model.addAttribute("")
-   // }
 
 }
 

@@ -1,14 +1,13 @@
 package org.launchcode.amenti.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+
 @Entity
-public class Supplements {
+public class SupplementModel {
 
     @Id
     @GeneratedValue
@@ -22,13 +21,31 @@ public class Supplements {
     @Size(min=1, message = "Description can not be left empty")
     private String description;
 
-    public Supplements(String name, String description) {
+    private SupplementsType type;
+
+    private int supId;
+    private static int nextId = 1;
+
+    public SupplementModel(String name, String description) {
+        this();
         this.name = name;
         this.description = description;
     }
 
-    public int getId() {
-        return id;
+
+
+    public SupplementModel() {
+        supId = nextId;
+        nextId++;
+    }
+
+
+    public int getSupId() {
+        return supId;
+    }
+
+    public void setSupId(int supId) {
+        this.supId = supId;
     }
 
     public String getName() {
@@ -45,5 +62,13 @@ public class Supplements {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public SupplementsType getType() {
+        return type;
+    }
+
+    public void setType(SupplementsType type) {
+        this.type = type;
     }
 }

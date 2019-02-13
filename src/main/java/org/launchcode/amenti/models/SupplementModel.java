@@ -9,12 +9,14 @@ import javax.validation.constraints.Size;
 @Entity
 public class SupplementModel {
 
+
+
     @Id
     @GeneratedValue
     private int id;
 
     @NotNull
-    @Size(min=3, max=20)
+    @Size(min=3, max=35)
     private String name;
 
     @NotNull
@@ -23,29 +25,20 @@ public class SupplementModel {
 
     private SupplementsType type;
 
-    private int supId;
-    private static int nextId = 1;
+    //manytomany?
+
 
     public SupplementModel(String name, String description) {
-        this();
         this.name = name;
         this.description = description;
     }
 
 
 
-    public SupplementModel() {
-        supId = nextId;
-        nextId++;
-    }
+    public SupplementModel() { }
 
-
-    public int getSupId() {
-        return supId;
-    }
-
-    public void setSupId(int supId) {
-        this.supId = supId;
+    public int getId() {
+        return id;
     }
 
     public String getName() {

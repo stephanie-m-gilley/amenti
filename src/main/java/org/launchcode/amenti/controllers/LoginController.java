@@ -1,7 +1,12 @@
 package org.launchcode.amenti.controllers;
 
 
+import org.launchcode.amenti.models.Login;
+
+import org.launchcode.amenti.models.data.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,9 +18,14 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "login")
 public class LoginController {
 
+     @Autowired
+     UserDao userDao;
+
 
         @RequestMapping(method = RequestMethod.GET)
-        public String index() {
+        public String index(Model model) {
+
+            model.addAttribute("title", "Amenti");
             return "login/index";
         }
 
@@ -25,6 +35,7 @@ public class LoginController {
                 @RequestParam("password") String password,
                 HttpSession session,
                 ModelMap modelMap) {
+
             if(username.equalsIgnoreCase("acc1") && password.equalsIgnoreCase("123")) {
                 session.setAttribute("username", username);
                 return "amenti/index";

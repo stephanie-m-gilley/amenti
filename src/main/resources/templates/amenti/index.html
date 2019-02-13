@@ -7,16 +7,22 @@
 
     <nav th:replace="fragments :: navigation"></nav>
 
-    <h2>Your Favorites</h2>
-
-    <p th:unless="${sups} and ${sups.size()}">No favorites added yet</p>
 
 
+    <h2>Your Added Items</h2>
+    <p th:unless="${sups} and ${sups.size()}">You have not added items yet</p>
 
-<ul>
-    <li th:each="sup : ${sups}" th:text="${sup}"></li>
+<tr>
+    <th>Supplement Name</th>&nbsp;&nbsp;
+    <th>Supplement Description</th>&nbsp;&nbsp;
+    <th>Supplement Category</th>
+</tr>
 
-</ul>
+<tr th:each="sups : ${sups}">
+    <td th:text="${supplementsModel.name}"></td>
+    <td th:text="${supplementsModel.description}"></td>
+    <td th:text="${supplementsModel.type.name}"></td>
+</tr>
 
 </body>
 </html>

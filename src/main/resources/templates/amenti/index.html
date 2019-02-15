@@ -15,12 +15,14 @@
     <table class="table">
 
         <tr>
+            <th>Supplement Brand</th>
             <th>Supplement Name</th>&nbsp;&nbsp;
             <th>Supplement Description</th>&nbsp;&nbsp;
             <th>Supplement Category</th>
         </tr>
 
         <tr th:each="supplement : ${supplements}">
+            <td th:text="${supplement.brand}"></td>
             <td th:text="${supplement.name}"></td>
             <td th:text="${supplement.description}"></td>
             <td th:text="${supplement.type.name}"></td>

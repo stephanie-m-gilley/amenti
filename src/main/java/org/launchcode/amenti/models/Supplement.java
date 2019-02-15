@@ -16,7 +16,11 @@ public class Supplement {
     private int id;
 
     @NotNull
-    @Size(min=3, max=35)
+    @Size(min=2, max=35)
+    private String brand;
+
+    @NotNull
+    @Size(min=3, max=40)
     private String name;
 
     @NotNull
@@ -37,6 +41,14 @@ public class Supplement {
 
 
     public Supplement() { }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 
     public int getId() {
         return id;

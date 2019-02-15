@@ -12,17 +12,20 @@
     <h2>Your Added Items</h2>
     <p th:unless="${sups} and ${sups.size()}">You have not added items yet</p>
 
-<tr>
-    <th>Supplement Name</th>&nbsp;&nbsp;
-    <th>Supplement Description</th>&nbsp;&nbsp;
-    <th>Supplement Category</th>
-</tr>
+    <table class="table">
 
-<tr th:each="sups : ${sups}">
-    <td th:text="${supplementsModel.name}"></td>
-    <td th:text="${supplementsModel.description}"></td>
-    <td th:text="${supplementsModel.type.name}"></td>
-</tr>
+        <tr>
+            <th>Supplement Name</th>&nbsp;&nbsp;
+            <th>Supplement Description</th>&nbsp;&nbsp;
+            <th>Supplement Category</th>
+        </tr>
+
+        <tr th:each="supplement : ${supplements}">
+            <td th:text="${supplement.name}"></td>
+            <td th:text="${supplement.description}"></td>
+            <td th:text="${supplement.type.name}"></td>
+        </tr>
+    </table>
 
 </body>
 </html>

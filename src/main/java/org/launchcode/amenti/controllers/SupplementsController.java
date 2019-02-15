@@ -1,7 +1,7 @@
 package org.launchcode.amenti.controllers;
 
 
-import org.launchcode.amenti.models.SupplementModel;
+import org.launchcode.amenti.models.Supplement;
 import org.launchcode.amenti.models.SupplementsType;
 import org.launchcode.amenti.models.data.SupplementsDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +23,15 @@ public class SupplementsController {
     @Autowired
     SupplementsDao supplementsDao;
 
+    //@Autowired
+    //UserDao userdao;
+
 
     //request path: /amenti
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("sups", supplementsDao.findAll());
+        model.addAttribute("supplements", supplementsDao.findAll());
         model.addAttribute("title", "Amenti");
         return "amenti/index";
     }
@@ -38,7 +41,7 @@ public class SupplementsController {
     public String displayAddSupplementForm(Model model) {
 
         model.addAttribute("title", "Add a New Supplement");
-        model.addAttribute(new SupplementModel());
+        model.addAttribute(new Supplement());
         model.addAttribute("supplementsType", SupplementsType.values());
 
         return "amenti/add";
@@ -47,7 +50,7 @@ public class SupplementsController {
 
     //needs to save the item to the logged in users table
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddSupplementForm(@ModelAttribute @Valid SupplementModel newSupplement,
+    public String processAddSupplementForm(@ModelAttribute @Valid Supplement newSupplement,
                                            Errors errors, Model model) {
 
         if (errors.hasErrors()) {

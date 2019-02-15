@@ -1,8 +1,6 @@
 package org.launchcode.amenti.controllers;
 
 
-import org.launchcode.amenti.models.Login;
-
 import org.launchcode.amenti.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

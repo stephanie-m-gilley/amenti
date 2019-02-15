@@ -1,18 +1,20 @@
 package org.launchcode.amenti.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
 
-        //@ManyToOne
-        //private SupplementModel supplements;
+
+        //for every 1 user there are many supplements
+        @OneToMany
+        @JoinColumn(name = "user_id")
+        private List<Supplement> supplements = new ArrayList<>();
 
         @Id
         @GeneratedValue
@@ -54,12 +56,12 @@ public class User {
         return id;
     }
 
-    //public SupplementModel getSupplements() {
-      //  return supplements;
-    //}
+    public List<Supplement> getSupplements() {
+        return supplements;
+    }
 
-    //public void setSupplements(SupplementModel supplements) {
-      //  this.supplements = supplements;
-    //}
+    public void setSupplements(List<Supplement> supplements) {
+        this.supplements = supplements;
+    }
 }
 

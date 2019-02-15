@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-public class SupplementModel {
+public class Supplement {
 
 
 
@@ -25,17 +25,18 @@ public class SupplementModel {
 
     private SupplementsType type;
 
-    //manytomany?
+    @ManyToOne
+    private User user;
 
 
-    public SupplementModel(String name, String description) {
+    public Supplement(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
 
 
-    public SupplementModel() { }
+    public Supplement() { }
 
     public int getId() {
         return id;

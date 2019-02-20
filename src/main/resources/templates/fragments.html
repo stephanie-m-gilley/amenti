@@ -3,19 +3,33 @@
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title th:text="${title}">Amenti</title>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
     <script type="text/javascript"src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+
+
 
 </head>
 <body>
 
 <nav th:fragment="navigation">
-    <a href="/amenti">Home</a>&nbsp;&nbsp;
-    <a href="/amenti/add">Add a Supplement</a>&nbsp;&nbsp;
-    <a href="/user/add">Become a Member</a>
-    <a href="/login/index">Logout</a>
 
+    <a href="/amenti">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/amenti/add">Add a Supplement</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/user/add">Become a Member</a>&nbsp;&nbsp;
+    <a href="/login/index">Logout</a>
 </nav>
+
+<div id="Brain Health" class="city">
+    <h2>Brain Health</h2>
+    <p>These are our brain health supplements that have been added</p>
+</div>
+
+
+
+
+
 
 </body>
 </html>

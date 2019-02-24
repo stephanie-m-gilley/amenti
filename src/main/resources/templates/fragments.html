@@ -13,12 +13,28 @@
 </head>
 <body>
 
-<nav th:fragment="navigation">
-
-    <a href="/amenti">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/amenti/add">Add a Supplement</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/user/add">Become a Member</a>&nbsp;&nbsp;
-    <a href="/login/index">Logout</a>
+<nav th:fragment="navigation" style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center">
+    <div>
+        <a href="/amenti">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/amenti/add">Add a Supplement</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/user/add">Become a Member</a>&nbsp;&nbsp;
+        <a href="/login/index">Logout</a>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
 </nav>
+
 </body>
 </html>

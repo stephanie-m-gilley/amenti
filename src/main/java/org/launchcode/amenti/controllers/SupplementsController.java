@@ -23,9 +23,6 @@ public class SupplementsController {
     @Autowired
     SupplementsDao supplementsDao;
 
-    //@Autowired
-    //UserDao userdao;
-
 
     //request path: /amenti
     @RequestMapping(value = "")

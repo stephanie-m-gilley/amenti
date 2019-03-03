@@ -6,24 +6,25 @@
 
 <h2>Log in</h2>
 
-<form method="post" action="http://localhost:8080/login/login">
-    <table border="0" cellpadding="2" cellspacing="2">
-        <tr>
-            <td></td>
-            <td><input type="text" placeholder="Username" name="username"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="password" placeholder="Password" name="password"></td>
+<div th:if="${errorMessage}"></div>
+    <form method="post" action="http://localhost:8080/login/login">
+        <table border="0" cellpadding="2" cellspacing="2">
+            <tr>
+                <td></td>
+                <td><input type="text" placeholder="Username" name="username"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="password" placeholder="Password" name="password"></td>
 
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td><input type="submit" value="Login"></td>
-        </tr>
-    </table>
-</form>
-
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+        <a href="/user/add">Become a Member</a>&nbsp;&nbsp;
+    </form>
 
 </body>
 </html>

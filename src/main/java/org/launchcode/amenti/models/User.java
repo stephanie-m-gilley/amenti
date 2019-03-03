@@ -21,6 +21,7 @@ public class User {
         private int id;
 
         @NotNull
+        @Size(min=3, max=15, message="Username does not meet minimum requirements")
         private String username;
 
         @Size(min=6, max=10, message="Password not in range")

@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${supplementType.name}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<ul>
+    <li th:each="supplement : ${menu.supplementTypes}" th:text="${supplementType.name}"></li>
+</ul>
+
+<p th:unless="${type.supplementTypes.size()}"><i>No Supplements Yet</i></p>
+
+<p><a th:href="'/amenti/add/' + ${type.id}">Add Supplements</a></p>
+
 </body>
 </html>

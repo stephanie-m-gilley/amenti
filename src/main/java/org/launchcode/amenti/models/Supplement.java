@@ -4,6 +4,7 @@ package org.launchcode.amenti.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 @Entity
@@ -31,6 +32,10 @@ public class Supplement {
 
     @ManyToOne
     private User user;
+
+    //@ManyToMany(mappedBy = "supplements")
+    //private List<SupplementsType> supplementsType;
+
 
 
     public Supplement(String name, String description) {

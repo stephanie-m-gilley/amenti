@@ -1,6 +1,11 @@
 package org.launchcode.amenti.models;
 
+import javax.persistence.*;
+import java.util.List;
+
+//@Entity
 public enum SupplementsType {
+
 
     DAILY ("Everyday Use"),
     HEART ("Heart Health"),
@@ -9,6 +14,10 @@ public enum SupplementsType {
     PRENATAL ("Prenatal"),
     DIET ("Weight Loss"),
     MISC ("Miscellaneous");
+
+
+    //@ManyToMany
+    //private List<Supplement> supplements;
 
     public boolean isDaily() {
         return this == DAILY;
@@ -47,4 +56,6 @@ public enum SupplementsType {
     public String getName() {
         return name;
     }
+
+
 }

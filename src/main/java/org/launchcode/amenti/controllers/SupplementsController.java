@@ -4,6 +4,7 @@ package org.launchcode.amenti.controllers;
 import org.launchcode.amenti.models.Supplement;
 import org.launchcode.amenti.models.SupplementsType;
 import org.launchcode.amenti.models.data.SupplementsDao;
+import org.launchcode.amenti.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,9 @@ public class SupplementsController {
 
     @Autowired
     SupplementsDao supplementsDao;
+
+    @Autowired
+    UserDao userdao;
 
 
     //request path: /amenti
@@ -63,24 +67,7 @@ public class SupplementsController {
         return "redirect:";
     }
 
-    //needs an html form page
-    /**@RequestMapping(value = "remove", method = RequestMethod.GET)
-    public String displayRemoveSupplementsForm(Model model) {
 
-        model.addAttribute("sups", supplementsDao.findAll());
-        model.addAttribute("title", "Remove a favorite");
-        return "amenti/remove";
-    }*/
-
-    /**@RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveSupplementForm(@RequestParam int[] supsIds) {
-
-        for(int supsId : supsIds) {
-            supplementsDao.delete(supsId);
-        }
-
-        return "redirect:";
-    }*/
 
 
 

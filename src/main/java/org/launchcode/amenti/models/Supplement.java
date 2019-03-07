@@ -12,9 +12,9 @@ import javax.validation.constraints.Size;
 public class Supplement {
 
 
-    //@NotNull
-    //@Range(min=1, max=5)
-    //private int rating;
+    @NotNull
+    @Range(min=1, max=5)
+    private int rating;
 
 
     @Id
@@ -88,11 +88,11 @@ public class Supplement {
         this.type = type;
     }
 
-    //public int getRating() {
-      //  return rating;
-    //}
+    public int getRating() {
+      return rating;
+    }
 
-    //public void setRating(int rating) {
-      //  this.rating = rating;
-    //}
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 }

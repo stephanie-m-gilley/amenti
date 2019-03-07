@@ -16,16 +16,18 @@
 
         <tr>
             <th>Supplement Brand</th>
-            <th>Supplement Name</th>&nbsp;&nbsp;
-            <th>Supplement Description</th>&nbsp;&nbsp;
-            <th>Supplement Category</th>
+            <th>Name</th>&nbsp;&nbsp;
+            <th>Description</th>&nbsp;&nbsp;
+            <th>Category</th>
+            <th>Rating</th>
         </tr>
 
         <tr th:each="supplement : ${supplements}">
             <td th:text="${supplement.brand}"></td>
             <td th:text="${supplement.name}"></td>
             <td th:text="${supplement.description}"></td>
-            <td th:text="${supplement.type}"></td>
+            <td th:text="${supplement.type.name}"></td>
+            <td th:text="${supplement.rating}"></td>
         </tr>
     </table>
 

@@ -1,15 +1,20 @@
 package org.launchcode.amenti.models;
 
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 
 @Entity
 public class Supplement {
 
+
+    //@NotNull
+    //@Range(min=1, max=5)
+    //private int rating;
 
 
     @Id
@@ -82,4 +87,12 @@ public class Supplement {
     public void setType(SupplementsType type) {
         this.type = type;
     }
+
+    //public int getRating() {
+      //  return rating;
+    //}
+
+    //public void setRating(int rating) {
+      //  this.rating = rating;
+    //}
 }

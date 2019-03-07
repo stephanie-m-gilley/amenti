@@ -3,7 +3,7 @@ package org.launchcode.amenti.models;
 import javax.persistence.*;
 import java.util.List;
 
-//@Entity
+
 public enum SupplementsType {
 
 
@@ -16,8 +16,8 @@ public enum SupplementsType {
     MISC ("Miscellaneous");
 
 
-    //@ManyToMany
-    //private List<Supplement> supplements;
+    @ManyToMany
+    private List<Supplement> supplements;
 
     public boolean isDaily() {
         return this == DAILY;

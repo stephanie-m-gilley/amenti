@@ -19,7 +19,6 @@ public class Supplement {
     private User user;
 
 
-
     @NotNull
     @Range(min=1, max=5)
     private int rating;

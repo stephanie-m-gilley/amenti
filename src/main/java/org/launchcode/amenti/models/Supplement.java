@@ -6,16 +6,23 @@ import org.hibernate.validator.constraints.Range;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
 public class Supplement {
 
+    //crashes the application. Hibernate wants the foreign key to be null
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_user") //nullable = false crashes
+    private User user;
+
+
 
     @NotNull
     @Range(min=1, max=5)
     private int rating;
-
 
     @Id
     @GeneratedValue
@@ -35,8 +42,6 @@ public class Supplement {
 
     private SupplementsType type;
 
-    @ManyToOne
-    private User user;
 
     //@ManyToMany(mappedBy = "supplements")
     //private List<SupplementsType> supplementsType;
@@ -95,4 +100,14 @@ public class Supplement {
     public void setRating(int rating) {
         this.rating = rating;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
 }

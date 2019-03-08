@@ -12,9 +12,10 @@ public class User {
 
 
         //for every 1 user there are many supplements
-        @OneToMany
-        @JoinColumn(name = "user_id")
-        private List<Supplement> supplements = new ArrayList<>();
+        @OneToMany(mappedBy = "user")
+        private List<Supplement> supplements = new ArrayList<Supplement>();
+
+
 
         @Id
         @GeneratedValue
@@ -53,8 +54,14 @@ public class User {
             this.password = password;
         }
 
+
+
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public List<Supplement> getSupplements() {

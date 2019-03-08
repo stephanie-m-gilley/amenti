@@ -3,6 +3,7 @@ package org.launchcode.amenti.controllers;
 
 import org.launchcode.amenti.models.Supplement;
 import org.launchcode.amenti.models.SupplementsType;
+import org.launchcode.amenti.models.User;
 import org.launchcode.amenti.models.data.SupplementsDao;
 import org.launchcode.amenti.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +33,12 @@ public class SupplementsController {
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("supplements", supplementsDao.findAll());
-        model.addAttribute("title", "Amenti");
-        return "amenti/index";
-    }
+
+            model.addAttribute("supplements", supplementsDao.findAll());
+            model.addAttribute("title", "Amenti");
+            return "amenti/index";
+        }
+
 
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
@@ -52,7 +55,7 @@ public class SupplementsController {
     //needs to save the item to the logged in users table
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddSupplementForm(@ModelAttribute @Valid Supplement newSupplement,
-                                           Errors errors, Model model) {
+                                           Errors errors, Model model, User user) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add a New Supplement");
@@ -60,9 +63,8 @@ public class SupplementsController {
             return "amenti/add";
         }
 
-
-
         supplementsDao.save(newSupplement);
+
         //redirect to home
         return "redirect:";
     }

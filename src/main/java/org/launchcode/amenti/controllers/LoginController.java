@@ -1,5 +1,6 @@
 package org.launchcode.amenti.controllers;
 import org.launchcode.amenti.models.User;
+import org.launchcode.amenti.models.data.SupplementsDao;
 import org.launchcode.amenti.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ public class LoginController {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    SupplementsDao supplementsDao;
+
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("title", "Amenti");
@@ -36,6 +40,7 @@ public class LoginController {
         User user = userDao.findByUsernameAndPassword(username, password);
         if(user!= null) {
             session.setAttribute("user", user);
+            model.addAttribute("supplements", userDao.findAll());
             return "amenti/index";
         } else {
             final String errorMessage = "Username and/or Password do not match";

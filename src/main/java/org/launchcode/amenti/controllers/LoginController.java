@@ -40,7 +40,8 @@ public class LoginController {
         User user = userDao.findByUsernameAndPassword(username, password);
         if(user!= null) {
             session.setAttribute("user", user);
-            model.addAttribute("supplements", userDao.findAll());
+            // TODO: Get logged in user's supplements instead of all supplements
+            model.addAttribute("supplements", supplementsDao.findAll());
             return "amenti/index";
         } else {
             final String errorMessage = "Username and/or Password do not match";

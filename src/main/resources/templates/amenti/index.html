@@ -7,12 +7,11 @@
 
     <nav th:replace="fragments :: navigation"></nav>
 
-
-
     <h2>Your Added Items</h2>
     <h3 th:unless="${supplements} and ${supplements.size()}">You have not added items yet</h3>
 
-    <table class="table">
+
+    <table th:if="${supplements != null} and ${!supplements.empty}" class="table">
 
         <tr>
             <th>Supplement Brand</th>
@@ -22,7 +21,7 @@
             <th>Rating</th>
         </tr>
 
-        <tr th:each="supplement : ${supplements}">
+        <tr th:unless="${supplements == null or supplements.empty}" th:each="supplement : ${supplements}">
             <td th:text="${supplement.brand}"></td>
             <td th:text="${supplement.name}"></td>
             <td th:text="${supplement.description}"></td>
@@ -30,6 +29,9 @@
             <td th:text="${supplement.rating}"></td>
         </tr>
     </table>
+
+
+
 
 </body>
 </html>

@@ -11,11 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -32,13 +33,18 @@ public class SupplementsController {
     //request path: /amenti
     @RequestMapping(value = "")
     public String index(Model model) {
-
-
             model.addAttribute("supplements", supplementsDao.findAll());
             model.addAttribute("title", "Amenti");
             return "amenti/index";
         }
 
+    @RequestMapping(value = "/supplements/{typeId}")
+    public String displaySupplementType(Model model, @PathVariable String typeId) {
+        SupplementsType supplementsType = SupplementsType.valueOf(typeId.toUpperCase());
+        model.addAttribute("supplements", supplementsDao.findByType(supplementsType));
+        model.addAttribute("title", "Amenti");
+        return "amenti/index";
+    }
 
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
@@ -55,14 +61,14 @@ public class SupplementsController {
     //needs to save the item to the logged in users table
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddSupplementForm(@ModelAttribute @Valid Supplement newSupplement,
-                                           Errors errors, Model model, User user) {
-
+                                           Errors errors, Model model, User user, HttpSession session) {
+        User loggedInUser = (User) session.getAttribute("user");
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add a New Supplement");
             model.addAttribute("supplementsType", SupplementsType.values());
             return "amenti/add";
         }
-
+        newSupplement.setUser(loggedInUser);
         supplementsDao.save(newSupplement);
 
         //redirect to home

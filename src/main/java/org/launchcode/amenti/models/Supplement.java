@@ -13,9 +13,8 @@ import java.util.List;
 @Entity
 public class Supplement {
 
-    //crashes the application. Hibernate wants the foreign key to be null
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_user") //nullable = false crashes
+    @JoinColumn(name = "fk_user")
     private User user;
 
 
@@ -40,11 +39,6 @@ public class Supplement {
     private String description;
 
     private SupplementsType type;
-
-
-    //@ManyToMany(mappedBy = "supplements")
-    //private List<SupplementsType> supplementsType;
-
 
 
     public Supplement(String name, String description) {

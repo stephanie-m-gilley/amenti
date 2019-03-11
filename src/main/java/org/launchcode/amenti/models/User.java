@@ -11,50 +11,42 @@ import java.util.List;
 public class User {
 
 
-        //for every 1 user there are many supplements
-        @OneToMany(mappedBy = "user")
-        private List<Supplement> supplements = new ArrayList<Supplement>();
+    //for every 1 user there are many supplements
+    @OneToMany(mappedBy = "user")
+    private List<Supplement> supplements = new ArrayList<Supplement>();
 
 
+    @Id
+    @GeneratedValue
+    private int id;
 
-        @Id
-        @GeneratedValue
-        private int id;
+    @NotNull
+    @Size(min=3, max=15, message="Username does not meet minimum requirements")
+    private String username;
 
-        @NotNull
-        @Size(min=3, max=15, message="Username does not meet minimum requirements")
-        private String username;
-
-        @Size(min=6, max=10, message="Password not in range")
-        private String password;
-
-
-        public User(String username, String password) {
-
-        }
+    @Size(min=6, max=10, message="Password not in range")
+    private String password;
 
 
-        public User() {
+    public User(String username, String password) { }
 
-        }
+    public User() { }
 
-        public String getUsername() {
+    public String getUsername() {
             return username;
         }
 
-        public void setUsername(String username) {
+    public void setUsername(String username) {
             this.username = username;
         }
 
-        public String getPassword() {
+    public String getPassword() {
             return password;
         }
 
-        public void setPassword(String password) {
+    public void setPassword(String password) {
             this.password = password;
         }
-
-
 
     public int getId() {
         return id;

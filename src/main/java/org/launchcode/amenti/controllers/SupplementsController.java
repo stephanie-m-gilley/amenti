@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpSession;
@@ -26,15 +23,12 @@ public class SupplementsController {
     @Autowired
     SupplementsDao supplementsDao;
 
-    @Autowired
-    UserDao userdao;
 
-
-    //request path: /amenti
     @RequestMapping(value = "")
-    public String index(Model model) {
+    public String index(Model model, @ModelAttribute User user) {
             model.addAttribute("supplements", supplementsDao.findAll());
             model.addAttribute("title", "Amenti");
+            model.addAttribute("user", user);
             return "amenti/index";
         }
 
@@ -46,7 +40,6 @@ public class SupplementsController {
         return "amenti/index";
     }
 
-
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddSupplementForm(Model model) {
 
@@ -55,13 +48,11 @@ public class SupplementsController {
         model.addAttribute("supplementsType", SupplementsType.values());
 
         return "amenti/add";
-
     }
 
-    //needs to save the item to the logged in users table
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddSupplementForm(@ModelAttribute @Valid Supplement newSupplement,
-                                           Errors errors, Model model, User user, HttpSession session) {
+                                           Model model, User user, Errors errors, HttpSession session) {
         User loggedInUser = (User) session.getAttribute("user");
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add a New Supplement");
@@ -71,14 +62,7 @@ public class SupplementsController {
         newSupplement.setUser(loggedInUser);
         supplementsDao.save(newSupplement);
 
-        //redirect to home
         return "redirect:";
     }
-
-
-
-
-
-
 }
 

@@ -3,12 +3,12 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-    <h1 th:text="${title}"></h1>
+
 
     <nav th:replace="fragments :: navigation"></nav>
 
-    <h2>Your Added Items</h2>
-    <h3 th:unless="${supplements} and ${supplements.size()}">You have not added items yet</h3>
+    <h2>Added Items</h2>
+    <h3 th:unless="${supplements} and ${supplements.size()}">No items added items yet</h3>
 
 
     <table th:if="${supplements != null} and ${!supplements.empty}" class="table">

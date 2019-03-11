@@ -10,9 +10,29 @@
 
 <h1 th:text="Welcome+ ' ' + to + ' ' + Amenti + ' ' + ${user.username}"></h1>
 
-<h3>Your Favorites</h3>
+<h2>Added Items</h2>
+<h3 th:unless="${supplements} and ${supplements.size()}">No items added items yet</h3>
 
-<p th:unless="${sups} and ${sups.size()}">No favorites added yet</p>
+
+<table th:if="${supplements != null} and ${!supplements.empty}" class="table">
+
+    <tr>
+        <th>Supplement Brand</th>
+        <th>Name</th>&nbsp;&nbsp;
+        <th>Description</th>&nbsp;&nbsp;
+        <th>Category</th>
+        <th>Rating</th>
+    </tr>
+
+    <tr th:unless="${supplements == null or supplements.empty}" th:each="supplement : ${supplements}">
+        <td th:text="${supplement.brand}"></td>
+        <td th:text="${supplement.name}"></td>
+        <td th:text="${supplement.description}"></td>
+        <td th:text="${supplement.type.name}"></td>
+        <td th:text="${supplement.rating}"></td>
+    </tr>
+</table>
+
 
 </body>
 </html>

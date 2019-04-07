@@ -12,13 +12,16 @@
 
 <nav th:fragment="navigation" style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center">
     <div>
-        <a href="/amenti">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <a href="/amenti/add">Add a Supplement</a>&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="/user/add">Become a Member</a>&nbsp;&nbsp;
         <a href="/login">Logout</a>
     </div>
-    <div class="container">
+    <div class="container" id="tabs">
     <ul class="nav nav-tabs" >
+        <li class="nav-item">
+            <a class="nav-link active" href="/amenti">Home</a>
+        </li>
         <li class="nav-item">
             <a class="nav-link active" href="/amenti/supplements/daily">Everyday Use</a>
         </li>

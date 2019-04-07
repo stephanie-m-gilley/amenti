@@ -11,7 +11,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -33,11 +32,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid User user, Errors errors, String verify) {
+    public String add(@Valid @ModelAttribute User user, Model model, String verify, Errors errors) {
         model.addAttribute("user", user);
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Become a Member");
+            model.addAttribute("user", user);
             return "user/add";
         }
 

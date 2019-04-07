@@ -2,15 +2,15 @@
 
 ## What is Amenti?
 
-###### Amenti is a supplement page where users can view, add, mark as favorite and rate a supplement.
-The user can can create an account and start browsing supplements with the given categories tabs. If they see a supplement that is
-prexisting from another user upload wish to share their story or rating on that item, the can do so
-by clicking "Add a review" to which they will then be given a text box to describe their story
-and 5 stars to select their rating of the supplement.
+###### Amenti is a supplement page where users can view and add a supplement.
+The user can can create an account and start browsing supplements with the given categories tabs. The categories tabs organize the
+supplements for better viewing. They can add a supplement on the add supplements form. The form asks for a brand name, item name,
+description, rating of 0-5 and a category that the supplement corresponds to. Once the item is added, the program will redirect them to
+the home page and show their added item at the top of the table on the web page.
 
-  Users can also save supplements as their "favorites" and will be displayed
-on their home page when logged in or when they navigate back to the home page. The user can add favorites to either remember what supplements
-they love or, simply what they wish to try later. They can also remove any favorites at any given time. A logged in user can also
-upload a supplement. On the "Add supplement page" they can fill out the form that asks for the supplement name,
-their story on the product, their star rating and what category it corresponds to (e.g. Brain Health, Heart health, Immune etc)
-and an image of the item (optional).
+  The given category tabs are simple and easy to use. When the user selects what category they want to add their supplement
+to, the item is automatically placed on that categories table. There are several categories to choose from to keep items organized
+and easier for the user to find. The page has: Brain Health, Heart Health, Immune Support, Prenatal, Miscellaneous, Diet and
+Everyday Use.
+
+Stack needed to run this program: Java, Spring Boot, Thymeleaf & MySql.

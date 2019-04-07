@@ -5,7 +5,6 @@ import org.launchcode.amenti.models.Supplement;
 import org.launchcode.amenti.models.SupplementsType;
 import org.launchcode.amenti.models.User;
 import org.launchcode.amenti.models.data.SupplementsDao;
-import org.launchcode.amenti.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

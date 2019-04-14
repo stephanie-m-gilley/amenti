@@ -6,22 +6,26 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post" style="max-width:600px;">
-    <div class="form-group">
-        <label for="username-field">User Name</label>
-        <input class="form-control" id ="username-field" type="text" name="username" placeholder="User Name" />
-    </div>
-    <div class="form-group">
-        <label for="password-field">Password</label>
-        <input class="form-control" id="password-field" type="password" name="password" placeholder="Password" />
-    </div>
-    <div class="form-group">
-        <label for="verify-field">Verify</label>
-        <input class="form-control" id="verify-field" type="password" name="verify" placeholder="Verify Password"/>
-    </div>
 
 
-    <input type="submit" value="Add User" />
+<form class="pure-form pure-form-aligned">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="name">Username</label>
+            <input id="name" type="text" placeholder="Username">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Password">
+        </div>
+        <div class="pure-control-group">
+            <label for="verify">Verify Password</label>
+            <input id="verify" type="password" placeholder="Verify Password">
+        </div>
+        <button typee="submit" class="pure-button pure-button-primary">Submit
+        </button>
+    </fieldset>
 </form>
 
 </body>

@@ -15,35 +15,50 @@
 <nav th:fragment="navigation" style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center">
 
 
-    <div class="pure-menu pure-menu-horizontal">
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Amenti</a></li>
-            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                <a href="#" id="menuLink1" class="pure-menu-link">View Supplements</a>
-                <ul class="pure-menu-children">
-                    <li class="pure-menu-item"><a href="/amenti" class="pure-menu-link">All</a></li>
-                    <li class="pure-menu-item"><a href="/amenti/supplements/daily" class="pure-menu-link">Everyday Use</a></li>
-                    <li class="pure-menu-item"><a href="/amenti/supplements/heart" class="pure-menu-link">Heart Health</a></li>
-                    <li class="pure-menu-item"><a href="/amenti/supplements/brain" class="pure-menu-link">Brain Health</a></li>
-                    <li class="pure-menu-item"><a href="/amenti/supplements/immune" class="pure-menu-link">Immune Support</a></li>
-                    <li class="pure-menu-item"><a href="/amenti/supplements/prenatal" class="pure-menu-link">Prenatal</a></li>
-                    <li class="pure-menu-item"><a href="/amenti/supplements/diet" class="pure-menu-link">Weight Loss</a></li>
-                    <li class="pure-menu-item"><a href="/amenti/supplements/misc" class="pure-menu-link">Miscellaneous</a></li>
-                </ul>
-            </li>
-            <li class="pure-menu-item">
-                <a class="pure-menu-link" href="/user/add">Become a Member</a>
-            </li>
-            <li class="pure-menu-item">
-                <a class="pure-menu-link" href="/login">Log out</a>
-            </li>
-        </ul>
-        </ul>
-    </div>
-    </div>
-
-</nav>
 
 
-</body>
-</html>
+
+    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu" >
+        <div class="custom-menu-screen"></div>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/amenti/add">Add a Supplement</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/amenti/supplements/daily">Everyday Use</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/amenti/supplements/heart">Heart Health</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/amenti/supplements/brain">Brain Health</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/amenti/supplements/immune">Immune Support</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/amenti/supplements/prenatal">Prenatal</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/amenti/supplements/diet">Weight Loss</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/amenti/supplements/misc">Miscellaneous</a>
+                </li>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/user/add">Become a Member</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/login">Log out</a>
+                </li>
+            </ul>
+            </ul>
+        </div>
+        </div>
+
+    </nav>
+
+
+    </body>
+    </html>
